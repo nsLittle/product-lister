@@ -2,19 +2,21 @@
 # Product Lister - Full-Stack Next.js & Express Application
 
 ## 🚀 Overview
-**Product Lister** is a **full-stack web application** built with **Next.js (App Router)** and **Express.js**, designed to showcase dynamically generated products with **pagination, filtering, and review features**. The application leverages **MongoDB** for persistent data storage and **Faker.js** to generate realistic product listings, making it an excellent demonstration of **modern full-stack JavaScript development**.
+**Product Lister** began as a **bootcamp project**, originally built using **Redux** for state management. As part of my learning journey, I **refreshed, refactored, and downsized** the application into a **React Next.js app**, replacing Redux with **React Context API** for a simpler and more scalable architecture.
 
-This project serves as a **learning tool** for mastering **Next.js, API integration, state management, and backend database interactions** while being fully **deployable on Heroku** as a monorepo.
+This project now serves as a **learning tool** for mastering **Next.js, API integration, state management, and backend database interactions**, while being fully **deployable on Heroku** as a monorepo.
 
 ---
 
 ## Product List
-This project was created by **Mutsumi Hata**, a student at **Parsity**, an online software engineering program. The work in this repository is wholly of the student based on a sample starter project that can be accessed by looking at the repository from which this project forks.
+This project was created by **Mutsumi Hata**, a student at **Parsity**, an online software engineering program. The work in this repository is wholly of the student based on a sample starter project that can be accessed by looking at the repository that this project forks.
 
 If you have any questions about this project or the program in general, visit [parsity.io](https://parsity.io/) or email **hello@parsity.io**.
 
 ### Project Description
 This full-stack project was created using **Node Express** for the backend and **React Next.js** for the frontend. Using **fake data generated from Faker.js**, this project mimics an online product list.
+
+The project initially used **Redux** for state management but has since been refactored to use **React Context API**, making it **lighter and more efficient**.
 
 The project currently has **reviews stored in the backend for each product**. This has not been tied in with the frontend for rendering at the moment.
 
@@ -27,7 +29,7 @@ This can ultimately be built into an **online store** with **shopping carts, use
 - **Backend:** Node.js, Express.js, REST API
 - **Database:** MongoDB, Mongoose (ODM)
 - **Data Seeding:** Faker.js (Mock Data Generation)
-- **State Management:** useContext (React Context API)
+- **State Management:** React Context API (Refactored from Redux)
 - **Styling:** CSS Modules / Tailwind CSS (optional)
 - **Deployment:** Heroku (Full-Stack Monorepo)
 - **API Documentation:** Swagger (OpenAPI 3.0)
@@ -125,7 +127,7 @@ The frontend will be available at **`http://localhost:3000/`**.
 For a complete list of API endpoints, refer to `swagger.yaml`. To view it in Swagger UI:
 ```bash
 npm install -g swagger-ui
-swagger-ui server/swagger.yaml
+swagger-ui server/docs/swagger.yaml
 ```
 
 Key Endpoints:

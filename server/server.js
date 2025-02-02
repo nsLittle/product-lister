@@ -1,9 +1,19 @@
+require("dotenv").config({ path: __dirname + "/.env" }); // Ensures it loads from the correct directory
+console.log("🔍 MONGO_URI in server.js:", process.env.MONGO_URI);
+
+const path = require("path"); 
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-require("dotenv").config();
+const swaggerUi = require("swagger-ui-express");
+const fs = require("fs");
 
 const app = express();
+
+const yaml = require("js-yaml");
+const swaggerDocument = yaml.load(fs.readFileSync(path.join(__dirname, "docs/swagger.yaml"), "utf8"));
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use(express.json());
 app.use(cors());
@@ -18,10 +28,10 @@ app.get("/", (req, res) => {
 });
 
 const productRoutes = require("./routes/productRoutes");
-app.use("/api/products", productRoutes);
+app.use("/products", productRoutes);
 
 const reviewRoutes = require("./routes/reviewRoutes");
-app.use("/api/reviews", reviewRoutes);
+app.use("/reviews", reviewRoutes);
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
